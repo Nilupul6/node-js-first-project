@@ -217,17 +217,17 @@
 
 
 
-// const fs = require('fs');
-// const http = require('http');
-// const url = require('url');
+const fs = require('fs');
+const http = require('http');
+const url = require('url');
 
 
-// const replacehtml = require('./Modules/replacehtml');
-// const userevent = require('./Modules/eventemit');
+const replacehtml = require('./Modules/replacehtml');
+const userevent = require('./Modules/eventemit');
 
-// let product = JSON.parse(fs.readFileSync('./JSON data/products.json','utf-8'));
-// let productitems = fs.readFileSync('./template/productitems.html','utf-8');
-// let item = fs.readFileSync('./template/item.html','utf-8');
+let product = JSON.parse(fs.readFileSync('./JSON data/products.json','utf-8'));
+let productitems = fs.readFileSync('./template/productitems.html','utf-8');
+let item = fs.readFileSync('./template/item.html','utf-8');
 
 
 
