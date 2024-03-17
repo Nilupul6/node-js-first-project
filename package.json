@@ -1,0 +1,11 @@
+{
+  "name": "node-js-first-project",
+  "version": "1.0.0",
+  "description": "for learning",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nilupul nishitha",
+  "license": "ISC"
+}
