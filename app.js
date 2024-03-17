@@ -232,76 +232,76 @@
 
 
 
-// const home = fs.readFileSync('./template/home.html','utf-8'); 
+const home = fs.readFileSync('./template/home.html','utf-8'); 
 
-// const server = http.createServer();
+const server = http.createServer();
 
-// server.on('request',(request,response)=>{
-//     //let path = request.url;
-//     let {query, pathname: path} = url.parse(request.url,true);
+server.on('request',(request,response)=>{
+    //let path = request.url;
+    let {query, pathname: path} = url.parse(request.url,true);
 
-//     if(path == '/' || path.toLocaleLowerCase() == '/home'){ 
-//         response.writeHead(200,{
-//             'Content-Type' : 'text/html',
-//             'my-header' : 'Hello World'
-//         });
-//         response.end(home.replace('{{%Content%}}','This is HomePage'));
-//     }
-//     else if(path.toLocaleLowerCase()=='/about'){
-//         response.writeHead(200,{
-//             'Content-Type' : 'text/html',
-//             'my-header' : 'Hello World'
-//         });
-//         response.end(home.replace('{{%Content%}}','This Is about Page','{{ITEMS}}',' '));
-//     }
-//     else if(path.toLocaleLowerCase()=='/login'){
-//         response.writeHead(200,{
-//             'Content-Type' : 'text/html',
-//             'my-header' : 'Hello World'
-//         });
-//         response.end(home.replace('{{%Content%}}','This is Login page'));
-//     }
-//     else if(path.toLocaleLowerCase() == '/product'){
-//         response.writeHead(200,{
-//             'Content-Type' : 'text/html'
-//         });
+    if(path == '/' || path.toLocaleLowerCase() == '/home'){ 
+        response.writeHead(200,{
+            'Content-Type' : 'text/html',
+            'my-header' : 'Hello World'
+        });
+        response.end(home.replace('{{%Content%}}','This is HomePage'));
+    }
+    else if(path.toLocaleLowerCase()=='/about'){
+        response.writeHead(200,{
+            'Content-Type' : 'text/html',
+            'my-header' : 'Hello World'
+        });
+        response.end(home.replace('{{%Content%}}','This Is about Page','{{ITEMS}}',' '));
+    }
+    else if(path.toLocaleLowerCase()=='/login'){
+        response.writeHead(200,{
+            'Content-Type' : 'text/html',
+            'my-header' : 'Hello World'
+        });
+        response.end(home.replace('{{%Content%}}','This is Login page'));
+    }
+    else if(path.toLocaleLowerCase() == '/product'){
+        response.writeHead(200,{
+            'Content-Type' : 'text/html'
+        });
 
-//         if(!query.id){
+        if(!query.id){
 
-//         let productlist = product.map(prod=>{
-//             return replacehtml(productitems,prod)   
-//         })
-//         let producthtmlresponse = home.replace('{{%Content%}}',productlist.join(' '));
-//         response.end(producthtmlresponse);
-//         }
-//         else{
-//             let x = product[query.id];
-//             let itemresponse = replacehtml(item,x);
-//             let y = home.replace('{{%Content%}}',itemresponse);
-//             response.end(y);
-//         }
-//     }
-//     else{
-//         response.writeHead(404,{
-//             'Content-Type' : 'text/html',
-//             'my-header' : 'Hello World'
-//         });
-//         response.end(home.replace('{{%Content%}}','Error 404 : Page is not found'));
-//     }
-// })
+        let productlist = product.map(prod=>{
+            return replacehtml(productitems,prod)   
+        })
+        let producthtmlresponse = home.replace('{{%Content%}}',productlist.join(' '));
+        response.end(producthtmlresponse);
+        }
+        else{
+            let x = product[query.id];
+            let itemresponse = replacehtml(item,x);
+            let y = home.replace('{{%Content%}}',itemresponse);
+            response.end(y);
+        }
+    }
+    else{
+        response.writeHead(404,{
+            'Content-Type' : 'text/html',
+            'my-header' : 'Hello World'
+        });
+        response.end(home.replace('{{%Content%}}','Error 404 : Page is not found'));
+    }
+})
 
-// server.listen(8000,'127.0.0.1',()=>{
-//     console.log('server is running...');
-// });
+server.listen(8000,'127.0.0.1',()=>{
+    console.log('server is running...');
+});
 
-// let myemit = new userevent();
+let myemit = new userevent();
 
-// myemit.on('usercreated',(id,name)=>{
-//     console.log(`A new user ${name} with ${id} is created`);
-// });
+myemit.on('usercreated',(id,name)=>{
+    console.log(`A new user ${name} with ${id} is created`);
+});
 
-// myemit.on('usercreated',(id,name)=>{
-//     console.log(`A new user ${name} with ${id} is Added to database`);
-// });
+myemit.on('usercreated',(id,name)=>{
+    console.log(`A new user ${name} with ${id} is Added to database`);
+});
 
-// myemit.emit('usercreated',101,'john');
+myemit.emit('usercreated',101,'john');
